@@ -1,4 +1,5 @@
 <script>
+  import ActiveFilters from '$lib/components/active-filters.svelte';
   import Listing from '$lib/components/listing.svelte';
   import '$lib/css/main.css';
   import { filters } from '$lib/stores.js';
@@ -23,9 +24,10 @@
 
 <header></header>
 
-<main>
+<main class="wrapper">
   <h1 class="visually-hidden">Job listings with filtering</h1>
-  <ul role="list" class="flow wrapper">
+  <ActiveFilters />
+  <ul role="list" class="flow">
     {#each filteredJobs as job (job.id)}
       <li><Listing {job} /></li>
     {/each}
@@ -43,6 +45,16 @@
     --space: 24px;
   }
 
+  main {
+    position: relative;
+  }
+
+  main > :global(#af) {
+    position: relative;
+    margin-block-end: -44px;
+    top: -69px;
+  }
+
   header {
     height: 156px;
     margin-block-end: 32px;
@@ -55,6 +67,11 @@
 
   .wrapper {
     --max-width: 1110px;
+  }
+
+  [role='list'] {
+    padding-inline-start: 0;
+    margin-block-start: 0;
   }
 
   .flow {
