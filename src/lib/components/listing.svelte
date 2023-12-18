@@ -22,6 +22,9 @@
 <article>
   <img class="logo" src={job.logo} alt="" width="48" height="48" />
   <div class="card">
+    {#if job.featured}
+      <div class="strip"></div>
+    {/if}
     <div class="row">
       <p class="company">{job.company}</p>
       {#if job.new}
@@ -31,7 +34,7 @@
         <Pill>Featured</Pill>
       {/if}
     </div>
-    <h3 class="position">{job.position}</h3>
+    <h3 class="position"><a href="#">{job.position}</a></h3>
     <p class="row details">
       <span>{job.postedAt}</span>
       <span>&bull;</span>
@@ -59,10 +62,22 @@
     position: absolute;
     translate: 0 -50%;
     left: var(--space);
+    z-index: 1;
   }
 
   .card {
     padding-top: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .strip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: hsl(var(--color-primary));
   }
 
   .row {
@@ -89,6 +104,15 @@
   .position {
     font-size: 15px;
     margin-block-start: 14px;
+  }
+
+  .position > a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .position > a:hover {
+    color: hsl(var(--color-primary));
   }
 
   .details {

@@ -72,6 +72,7 @@
   [role='list'] {
     padding-inline-start: 0;
     margin-block-start: 0;
+    margin-block-end: 34px;
   }
 
   .flow {
