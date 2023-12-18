@@ -67,11 +67,17 @@
     border-bottom-right-radius: var(--rounded);
   }
 
-  button[data-icon]:hover > .icon {
-    background-color: hsl(var(--color-neutral-dark));
+  @media (hover: hover) {
+    button[data-icon]:hover > .icon {
+      background-color: hsl(var(--color-neutral-dark));
+    }
+
+    button:not([data-icon]):hover {
+      --text-color: #fff;
+      --bg-color: hsl(var(--color-primary));
+    }
   }
 
-  button:not([data-icon]):hover,
   button:not([data-icon])[aria-pressed='true'] {
     --text-color: #fff;
     --bg-color: hsl(var(--color-primary));
