@@ -47,11 +47,12 @@
 
   main {
     position: relative;
+    --wrapper-max-width: 1110px;
   }
 
   main > :global(#af) {
     position: relative;
-    margin-block-end: -44px;
+    margin-block-end: -36px;
     top: -69px;
   }
 
@@ -76,6 +77,17 @@
   }
 
   .flow {
-    --flow-space: 40px;
+    --flow-space: clamp(1.5rem, 2.8521rem - 1.5023vw, 2.5rem); /* 40 -> 24 */
+  }
+
+  @media (min-width: 742px) {
+    header {
+      margin-block-end: 75px;
+    }
+
+    main > :global(#af) {
+      top: -112px;
+      margin-block-end: -71px;
+    }
   }
 </style>

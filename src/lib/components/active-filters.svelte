@@ -20,6 +20,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    --space: 20px clamp(1.25rem, 0.8099rem + 1.8779vw, 2.5rem);
   }
 
   [role='list'] {

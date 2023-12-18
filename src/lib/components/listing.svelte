@@ -25,23 +25,25 @@
     {#if job.featured}
       <div class="strip"></div>
     {/if}
-    <div class="row">
-      <p class="company">{job.company}</p>
-      {#if job.new}
-        <Pill --bg-color="var(--color-primary)">New!</Pill>
-      {/if}
-      {#if job.featured}
-        <Pill>Featured</Pill>
-      {/if}
+    <div class="col">
+      <div class="row">
+        <p class="company">{job.company}</p>
+        {#if job.new}
+          <Pill --bg-color="var(--color-primary)">New!</Pill>
+        {/if}
+        {#if job.featured}
+          <Pill>Featured</Pill>
+        {/if}
+      </div>
+      <h3 class="position"><a href="#">{job.position}</a></h3>
+      <p class="row details">
+        <span>{job.postedAt}</span>
+        <span>&bull;</span>
+        <span>{job.contract}</span>
+        <span>&bull;</span>
+        <span>{job.location}</span>
+      </p>
     </div>
-    <h3 class="position"><a href="#">{job.position}</a></h3>
-    <p class="row details">
-      <span>{job.postedAt}</span>
-      <span>&bull;</span>
-      <span>{job.contract}</span>
-      <span>&bull;</span>
-      <span>{job.location}</span>
-    </p>
     <hr />
     <ul role="list" class="cluster">
       {#each tags as tag (tag)}
@@ -56,19 +58,22 @@
     position: relative;
     padding-top: 24px;
     font-size: 15px;
+    line-height: normal;
   }
 
   .logo {
     position: absolute;
     translate: 0 -50%;
     left: var(--space);
+    --space: clamp(1.5rem, 1.1479rem + 1.5023vw, 2.5rem);
     z-index: 1;
   }
 
   .card {
-    padding-top: 32px;
     position: relative;
     overflow: hidden;
+    --space: 32px clamp(1.5rem, 1.1479rem + 1.5023vw, 2.5rem)
+      clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
   }
 
   .strip {
@@ -94,16 +99,17 @@
     margin-block-start: 0;
     color: hsl(var(--color-primary));
     font-weight: 700;
-    line-height: normal;
+    font-size: clamp(0.9375rem, 0.8715rem + 0.2817vw, 1.125rem); /* 15 -> 18 */
   }
 
   .company + :global(*) > :global(*) {
     margin-inline-start: 23px;
+    margin-inline-start: clamp(0.9375rem, 1.6136rem - 0.7512vw, 1.4375rem); /* 23 -> 15 */
   }
 
   .position {
-    font-size: 15px;
-    margin-block-start: 14px;
+    font-size: clamp(0.9375rem, 0.8055rem + 0.5634vw, 1.3125rem); /* 15 -> 21 */
+    margin-block-start: clamp(0.75rem, 0.919rem + -0.1878vw, 0.875rem); /* 14 -> 12 */
   }
 
   .position > a {
@@ -117,8 +123,9 @@
 
   .details {
     color: hsl(var(--color-neutral-light));
-    gap: 7px;
-    margin-block-start: 18px;
+    gap: clamp(0.4375rem, 0.2394rem + 0.8451vw, 1rem); /* 7 -> 16 */
+    margin-block-start: clamp(0.8125rem, 1.235rem - 0.4695vw, 1.125rem); /* 18 -> 13 */
+    font-size: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem); /* 16 -> 18 */
   }
 
   hr {
@@ -137,5 +144,42 @@
   .cluster {
     --v-gutter: 18px;
     --h-gutter: 16px;
+  }
+
+  @media (min-width: 742px) {
+    article {
+      padding-top: 0;
+    }
+
+    .logo {
+      top: 50%;
+      width: 88px;
+      height: 88px;
+    }
+
+    .card {
+      padding-inline-start: 152px;
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    .col {
+      flex-basis: max-content;
+      flex-shrink: 0;
+      /* In case the tags become 3 rows, adjust the content so it's still centered vertically */
+      display: flex;
+      flex-direction: column;
+      margin-block: auto;
+    }
+
+    hr {
+      display: none;
+    }
+
+    .cluster {
+      justify-content: flex-end;
+      align-items: center;
+    }
   }
 </style>
