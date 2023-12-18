@@ -1,0 +1,8 @@
+body {
+  font-family: 'League Spartan', Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
+    sans-serif;
+  font-weight: 500;
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-text, 0 0 7));
+  margin: 0;
+}
