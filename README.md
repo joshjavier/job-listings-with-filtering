@@ -1,38 +1,66 @@
-# create-svelte
+# Frontend Mentor - Job listings with filtering solution
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Creating a project
+## Table of contents
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Overview
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+### The challenge
 
-## Developing
+Users should be able to:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- [x] View the optimal layout for the site depending on their device's screen size
+- [x] See hover states for all interactive elements on the page
+- [x] Filter job listings based on the categories
 
-```bash
-npm run dev
+### Screenshots
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+![Desktop preview](./docs/screenshot-desktop.png)
 
-## Building
+**Mobile**
 
-To create a production version of your app:
+<img src="./docs/screenshot-mobile.png" alt="Mobile preview" width="200">
 
-```bash
-npm run build
-```
+**Tablet**
 
-You can preview the production build with `npm run preview`.
+<img src="./docs/screenshot-tablet.png" alt="Tablet preview" width="480">
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### Links
+
+- Solution URL: https://www.frontendmentor.io/solutions/job-listings-with-filtering-using-svelte-and-sveltekit-z-iBbuMc6E
+- Live Site URL: https://papaya-kulfi-d7ee3b.netlify.app
+
+## My process
+
+### Built with
+
+- Svelte and SvelteKit
+- Mobile-first workflow
+
+### Continued development
+
+A couple of things I could try:
+
+- Add transitions using `svelte/transition`
+- Implement client-side routing by setting the active filters as search parameters, e.g., `?filter=frontend,css,javascript`
+
+### Useful resources
+
+- [A (more) Modern CSS Reset - Andy Bell](https://andy-bell.co.uk/a-more-modern-css-reset/)
+- [Solving Sticky Hover States with @media (hover: hover) - CSS-Tricks](https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/)
+
+## Author
+
+- Website - [Josh Javier](https://joshjavier.com/)
+- Frontend Mentor - [@joshjavier](https://www.frontendmentor.io/profile/joshjavier)
