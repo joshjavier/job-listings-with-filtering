@@ -73,7 +73,7 @@
   [role='list'] {
     padding-inline-start: 0;
     margin-block-start: 0;
-    margin-block-end: 34px;
+    margin-block-end: clamp(2.125rem, 0.2104rem + 8.169vw, 7.5625rem); /* 34 -> 121 */
   }
 
   .flow {
